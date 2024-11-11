@@ -59,6 +59,6 @@ def getbook(bookid):
 
 
 
-if "name" == '__main':
+if __name__== '__main':
 
     app.run(host='0.0.0.0', port=5000)
