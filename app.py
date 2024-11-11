@@ -4,7 +4,7 @@ from flask import Flask, jsonify
 
 
 
-app = Flask("name")
+app = Flask(__name__)
 
 
 
@@ -47,9 +47,9 @@ def getbooks():
 
 @app.route('/api/books/<int:bookid>')
 
-def getbook(bookid):
+def getbook(book_id):
 
-    book = next((book for book in books if book["id"] == book-id), None)
+    book = next((book for book in books if book["id"] == book_id), None)
 
     if book:
 
