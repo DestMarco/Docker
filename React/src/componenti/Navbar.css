@@ -1,3 +1,51 @@
 ul li{
     color: red;
 }
+
+
+.BordoArrotondato{
+    border: 150px;
+    border-radius: 500px;
+    height: 300px;
+    animation: cambiaColore 5s infinite alternate; 
+}
+
+
+#box{
+    margin: 500;
+    background-color: rgb(42, 165, 42);
+    height: 300px;
+    width: 300px;
+    border: 150px;
+    border-radius: 100px
+}
+
+.rotate{
+
+    animation: spin 1s infinite linear;
+}
+
+@keyframes cambiaColore {
+    0% {
+        background-color: black;
+        border-color: red;
+    }
+    50% {
+        background-color: purple;
+        border-color: yellow;
+    }
+    100% {
+        background-color: blue;
+        border-color: green;
+    }
+}
+
+
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
