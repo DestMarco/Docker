@@ -1,51 +1,32 @@
-import psycopg2, json
-from flask import Flask, request, jsonify
-from psycopg2.extras import RealDictCursor
+import psycopg2
+from flask import Flask, jsonify
+
 app = Flask(__name__)
 
-"""host = "172.21.63.6"
+# Database configuration
+host = "172.21.63.6"
 port = "5432"
 dbname = "cielo"
 user = "postgres"
-password = "postgres" """
+password = "postgres"
 
-
-
-
-
-db_config = {
-    #ip addr
-    "host": "172.21.63.6",  # va cambiato ogni volta che ri accende/riavvia la macchina
-    "port": "5432",
-    "dbname": "cielo",
-    "user": "postgres",
-    "password": "postgres"
-}
-
-def get_db_connection():
-    try:
-        return psycopg2.connect(**db_config, cursor_factory=RealDictCursor)
-    except Exception as e:
-        return str(e)
-
-"""def connect_to_db():
+def connect_to_db():
     return psycopg2.connect(
-        host=host, 
-        port=port, 
-        dbname=dbname, 
-        user=user, 
+        host=host,
+        port=port,
+        dbname=dbname,
+        user=user,
         password=password
-    )"""
+    )
 
 @app.route('/query/<int:query_id>', methods=['GET'])
 def run_query(query_id):
-    
+    """Execute predefined queries based on the query_id."""
     try:
-        connection = get_db_connection()
+        connection = connect_to_db()
         cursor = connection.cursor()
 
         if query_id == 1:
-            
             query = "SELECT * FROM aeroporto"
         elif query_id == 2:
             query = """
