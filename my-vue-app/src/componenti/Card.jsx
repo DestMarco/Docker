@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 //import"./card.css"
 
 function Card({ti,im,des,isVisit}){
