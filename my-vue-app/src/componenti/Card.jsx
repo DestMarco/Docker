@@ -20,6 +20,7 @@ function Card({ti,im,des,isVisit}){
 
         {isVisit ?  <span><b> Ucciso</b></span>:<span>Non ucciso </span> }
     </div>
+    
     )
 }
 
